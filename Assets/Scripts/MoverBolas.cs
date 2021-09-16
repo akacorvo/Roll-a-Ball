@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MoverBolas : MonoBehaviour
 {
@@ -10,9 +11,9 @@ public class MoverBolas : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnAMove(InputValue movementValue)
     {
         
     }
 }
+  
