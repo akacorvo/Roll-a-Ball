@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class MoverBolas : MonoBehaviour
 {
     public float speed = 0;
+    public TextMeshProUGUI countText;
+
     private Rigidbody rb;
     private int count;
     private float movementX;
@@ -16,6 +19,8 @@ public class MoverBolas : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         count = 0;
+
+        SetCountText();
     }
 
     private void OnMove(InputValue movementValue)
@@ -25,6 +30,11 @@ public class MoverBolas : MonoBehaviour
         movementX = movementVector.x;
         movementY = movementVector.y;
 
+    }
+
+    void SetCountText()
+    {
+        countText.text = "Count: " + count.ToString();
     }
 
     void FixedUpdate()
@@ -40,6 +50,8 @@ public class MoverBolas : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             count = count + 1;
+
+            SetCountText();
         }
         
     }
