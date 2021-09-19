@@ -15,7 +15,7 @@ public class MoverBolas : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    private void OnAMove(InputValue movementValue)
+    private void OnMove(InputValue movementValue)
     {
         Vector2 movementVector = movementValue.Get<Vector2>();
 
