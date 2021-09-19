@@ -8,6 +8,7 @@ public class MoverBolas : MonoBehaviour
 {
     public float speed = 0;
     public TextMeshProUGUI countText;
+    public GameObject winTextObject;
 
     private Rigidbody rb;
     private int count;
@@ -21,6 +22,7 @@ public class MoverBolas : MonoBehaviour
         count = 0;
 
         SetCountText();
+        winTextObject.SetActive(false);
     }
 
     private void OnMove(InputValue movementValue)
@@ -35,6 +37,10 @@ public class MoverBolas : MonoBehaviour
     void SetCountText()
     {
         countText.text = "Count: " + count.ToString();
+        if (count >= 10)
+        {
+            winTextObject.SetActive(true);
+        }
     }
 
     void FixedUpdate()
