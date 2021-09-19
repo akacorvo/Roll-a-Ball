@@ -7,6 +7,7 @@ public class MoverBolas : MonoBehaviour
 {
     public float speed = 0;
     private Rigidbody rb;
+    private int count;
     private float movementX;
     private float movementY;
 
@@ -14,6 +15,7 @@ public class MoverBolas : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        count = 0;
     }
 
     private void OnMove(InputValue movementValue)
@@ -37,6 +39,7 @@ public class MoverBolas : MonoBehaviour
         if(other.gameObject.CompareTag("PickUp"))
         {
             other.gameObject.SetActive(false);
+            count = count + 1;
         }
         
     }
